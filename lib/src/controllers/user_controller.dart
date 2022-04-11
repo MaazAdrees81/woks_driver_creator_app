@@ -1,13 +1,14 @@
 import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
-import 'package:geocoder/geocoder.dart';
-import 'package:http/http.dart' as http;
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:geocoder/geocoder.dart';
 import 'package:global_configuration/global_configuration.dart';
+import 'package:http/http.dart' as http;
 import 'package:mvc_pattern/mvc_pattern.dart';
 import 'package:products_deliveryboy/src/helpers/helper.dart';
 import 'package:products_deliveryboy/src/models/register.dart';
@@ -32,7 +33,6 @@ class UserController extends ControllerMVC {
     GlobalKey<FormState>(),
     GlobalKey<FormState>(),
     GlobalKey<FormState>(),
-
   ];
   UserController() {
     loader = Helper.overlayLoader(context);
@@ -43,9 +43,6 @@ class UserController extends ControllerMVC {
       print('Notification not configured');
     });
   }
-
-
-
 
   void login() async {
     if (loginFormKey.currentState.validate()) {
@@ -88,6 +85,7 @@ class UserController extends ControllerMVC {
     registerData.latitude = first.coordinates.latitude;
     registerData.longtitude = first.coordinates.longitude;
   }
+
   gettoken() {
     _firebaseMessaging.getToken().then((deviceid) {
       var table = 'driver' + currentUser.value.id;
@@ -97,7 +95,6 @@ class UserController extends ControllerMVC {
       });
     });
   }
-
 
   void register(File image) async {
     FocusScope.of(context).unfocus();
@@ -119,8 +116,8 @@ class UserController extends ControllerMVC {
         gravity: ToastGravity.BOTTOM,
         timeInSecForIosWeb: 5,
       );
-       Navigator.of(context).pushReplacementNamed('/Login');
-
+      // Navigator.of(context).pushReplacementNamed('/Login');
+      Navigator.of(context).pushReplacementNamed('/RegisterComplete');
       Helper.hideLoader(loader);
     } else {
       Helper.hideLoader(loader);
@@ -134,14 +131,14 @@ class UserController extends ControllerMVC {
       var rng = new Random();
 
       String code = (rng.nextInt(9000) + 1000).toString();
-      repository.resetPassword(user.email, code).then((value) {
+      repository.resetPassword(user.email, code).then((value) {}).whenComplete(() {});
 
-      }).whenComplete(() {
-
-      });
-
-     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => OtpVerificationEmail(email: email,otp: code,con: con,)));
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (context) => OtpVerificationEmail(
+                email: email,
+                otp: code,
+                con: con,
+              )));
     }
   }
-
 }

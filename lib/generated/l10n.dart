@@ -1,6 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
 import 'intl/messages_all.dart';
 
 // **************************************************************************
@@ -12,22 +13,21 @@ import 'intl/messages_all.dart';
 
 class S {
   S();
-  
+
   static S current;
-  
-  static const AppLocalizationDelegate delegate =
-    AppLocalizationDelegate();
+
+  static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<S> load(Locale locale) {
     final name = (locale.countryCode?.isEmpty ?? false) ? locale.languageCode : locale.toString();
-    final localeName = Intl.canonicalizedLocale(name); 
+    final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
       S.current = S();
-      
+
       return S.current;
     });
-  } 
+  }
 
   static S of(BuildContext context) {
     return Localizations.of<S>(context, S);
@@ -656,7 +656,7 @@ class S {
   /// `Debe ser un correo electrónico válido`
   String get should_be_valid_email {
     return Intl.message(
-      'Debe ser un correo electrónico válido',
+      'Must be a valid email',
       name: 'should_be_valid_email',
       desc: '',
       args: [],
@@ -666,7 +666,7 @@ class S {
   /// `Debe tener más de 3 caracteress`
   String get should_be_more_than_3_characters {
     return Intl.message(
-      'Debe tener más de 3 caracteress',
+      'Must have more than 3 characters',
       name: 'should_be_more_than_3_characters',
       desc: '',
       args: [],

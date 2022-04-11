@@ -163,14 +163,14 @@ class _RegisterState extends StateMVC<Register> {
                 height: MediaQuery.of(context).size.height,
                 child: Column(children: <Widget>[
                   ListTile(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
+                    // onTap: () {
+                    //   Navigator.pop(context);
+                    // },
                     title: Text(S.of(context).register, style: Theme.of(context).textTheme.headline4),
-                    leading: Icon(
-                      Icons.arrow_back_ios,
-                      color: Theme.of(context).backgroundColor,
-                    ),
+                    // leading: Icon(
+                    //   Icons.arrow_back_ios,
+                    //   color: Theme.of(context).backgroundColor,
+                    // ),
                   ),
                   Padding(padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.02, bottom: MediaQuery.of(context).size.height * 0.09), child: Container()),
                   Expanded(
@@ -570,11 +570,13 @@ class _RegisterState extends StateMVC<Register> {
                                     height: 70,
                                     child: TextFormField(
                                         controller: _controllerZipcode,
-                                        onSaved: (input) => _con.registerData.zipcode = int.parse(input),
+                                        // onSaved: (input) => _con.registerData.zipcode = int.parse(input),
+                                        onSaved: (input) => _con.registerData.zipcode = input,
                                         textAlign: TextAlign.left,
                                         autocorrect: true,
-                                        keyboardType: TextInputType.number,
-                                        inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
+                                        keyboardType: TextInputType.text,
+                                        // keyboardType: TextInputType.number,
+                                        // inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
                                         decoration: InputDecoration(
                                           hintText: 'Zipcode',
                                           hintStyle: Theme.of(context).textTheme.caption,

@@ -5,8 +5,10 @@ import 'package:products_deliveryboy/src/pages/map.dart';
 import 'package:products_deliveryboy/src/pages/new_password.dart';
 import 'package:products_deliveryboy/src/pages/orders_history.dart';
 import 'package:products_deliveryboy/src/pages/register.dart';
+import 'package:products_deliveryboy/src/pages/register_complete.dart';
 import 'package:products_deliveryboy/src/pages/topup.dart';
 import 'package:products_deliveryboy/src/pages/wallet.dart';
+
 import 'src/pages/languages.dart';
 import 'src/pages/notifications.dart';
 import 'src/pages/order.dart';
@@ -29,6 +31,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => WalletPage());
       case '/SignUp':
         return MaterialPageRoute(builder: (_) => Register());
+      case '/RegisterComplete':
+        return MaterialPageRoute(builder: (_) => RegisterComplete());
       case '/Pages':
         return MaterialPageRoute(builder: (_) => PagesTestWidget(currentTab: args));
       case '/OrderDetails':
@@ -52,7 +56,10 @@ class RouteGenerator {
       case '/NewPassword':
         return MaterialPageRoute(builder: (_) => NewPasswordWidget());
       case '/Map':
-        return MaterialPageRoute(builder: (_) => MapWidget(orderDetails: args,));
+        return MaterialPageRoute(
+            builder: (_) => MapWidget(
+                  orderDetails: args,
+                ));
       default:
         // If there is no such named route in the switch statement, e.g. /third
         return MaterialPageRoute(builder: (_) => Scaffold(body: SizedBox(height: 0)));

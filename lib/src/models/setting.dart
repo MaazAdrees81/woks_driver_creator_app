@@ -19,8 +19,8 @@ class Setting {
   Setting.fromJSON(Map<String, dynamic> jsonMap) {
     try {
       appName = jsonMap['app_name'] ?? null;
-    googleMapsKey = jsonMap['google_maps_key'] ?? null;
-      mobileLanguage.value = Locale(jsonMap['mobile_language'] ?? "en", '');
+      googleMapsKey = jsonMap['google_maps_key'] ?? null;
+      mobileLanguage.value = Locale(jsonMap['mobile_language'] ?? "en", 'UK');
       appVersion = jsonMap['app_version'] ?? '';
       enableVersion = jsonMap['enable_version'] == null || jsonMap['enable_version'] == '0' ? false : true;
       phone = jsonMap['phone'];
@@ -43,7 +43,7 @@ class Setting {
   Map toMap() {
     var map = new Map<String, dynamic>();
     map["app_name"] = appName;
-   map["phone"] = phone;
+    map["phone"] = phone;
     map["default_tax"] = defaultTax;
     map["default_currency"] = defaultCurrency;
     map["currency_right"] = currencyRight;

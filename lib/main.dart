@@ -30,7 +30,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     settingRepo.initSettings();
 
-    userRepo.getCurrentUser();
+    // userRepo.getCurrentUser();
     super.initState();
   }
 

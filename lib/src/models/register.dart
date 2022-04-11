@@ -1,5 +1,3 @@
-
-
 class Registermodel {
   String firstname;
   String lastname;
@@ -9,7 +7,8 @@ class Registermodel {
   String address2;
   String city;
   String state;
-  int zipcode;
+  // int zipcode;
+  String zipcode;
   double latitude;
   double longtitude;
   String email;
@@ -20,7 +19,6 @@ class Registermodel {
   String aboutyou;
   String drivingMode;
   String storeId;
-
 
   Registermodel();
 
@@ -45,8 +43,6 @@ class Registermodel {
       profile = jsonMap['profile'];
       licenseno = jsonMap['licenseno'];
       aboutyou = jsonMap['aboutyou'];
-
-
     } catch (e) {
       firstname = '';
       lastname = '';
@@ -58,7 +54,8 @@ class Registermodel {
       address2 = '';
       city = '';
       state = '';
-      zipcode = 0;
+      zipcode = '';
+      // zipcode = 0;
       latitude = 0.0;
       longtitude = 0.0;
       email = '';
@@ -92,7 +89,6 @@ class Registermodel {
     map["licenseno"] = licenseno;
     map["drivingMode"] = drivingMode;
     map["storeId"] = storeId;
-
 
     return map;
   }

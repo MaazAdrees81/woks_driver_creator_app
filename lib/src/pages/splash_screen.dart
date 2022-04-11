@@ -22,17 +22,14 @@ class SplashScreenState extends StateMVC<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    loadData();
+    // loadData();
   }
 
   void loadData() {
-
-
     _con.progress.addListener(() {
       double progress = 0;
 
       _con.progress.value.values.forEach((_progress) {
-
         progress += _progress;
 
         print('loading');
@@ -44,8 +41,10 @@ class SplashScreenState extends StateMVC<SplashScreen> {
             if (currentUser.value.apiToken == null) {
               Navigator.of(context).pushReplacementNamed('/Login');
             } else {
-              if(firstLoad==false) {
-                setState(() { firstLoad=true; });
+              if (firstLoad == false) {
+                setState(() {
+                  firstLoad = true;
+                });
 
                 Navigator.of(context).pushReplacementNamed('/Pages', arguments: 1);
               }
@@ -58,6 +57,10 @@ class SplashScreenState extends StateMVC<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Future.delayed(
+      Duration(seconds: 1),
+      () => Navigator.of(context).pushReplacementNamed('/SignUp'),
+    );
     return Scaffold(
       key: _con.scaffoldKey,
       body: Container(
